@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background:url("OIP.jpg");
+            background-position:center;
+            background-size:cover;
+
+        }
+        .container{
+                display: grid;
+                justify-content:center;
+                align-items: center;
+                height: 90vh;      
+        }
+        
+        .div1{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            padding:10px;
+        }
+#calc {
+    margin: 10px;
+    padding: 5px 10px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: rgb(50, 56, 107);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+  
+
+#calc:hover {background-color: #7c6060}
+
+#calc:active {
+    background-color: white;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+#box1,#box2{
+            border-color: rgb(179, 22, 56);
+            margin-bottom: 20px;
+            border-radius: 15px;
+            width: 300px;
+            outline: none;
+            text-align: center;
+            color:black;
+            font-weight: bold;
+}
+.style{
+    font-weight: 700;
+    font-size: medium;
+}
+#demo, #demo1{
+
+
+margin: 10px;
+font-size: 30px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="div1">
+            <span><h1>TIP CALCULATOR</h1></span>
+            <span class="style">Enter amount</span>
+            <input id="box1"type="text">
+            <span class="style">Enter Tip amount</span>
+            <input id="box2"type="text">
+            <button id="calc">Calculate</button>
+        </div>
+            <div id="demo"></div>
+            <div id="demo1"></div>
+    </div>
+    <script>
+        let inputBox1=document.getElementById("box1");
+        let inputBox2=document.getElementById("box2");
+        let tipBox3=document.getElementById("demo");
+        let totalBox4=document.getElementById("demo1");
+        let calc=document.getElementById("calc");
+        calc.onclick=handler;
+        
+         function handler(){
+            amount=parseInt(inputBox1.value);
+            tipBox3=parseInt(inputBox2.value);
+            calcAmount=Math.round(amount*(tipBox3/100));
+            totalBox4=calcAmount+amount;
+            document.getElementById("demo").innerHTML=`Tip Amount ${calcAmount}`;
+            document.getElementById("demo1").innerHTML=`Total Amount ${totalBox4}`;
+         }
+        
+
+    </script>
+</body>
+</html>
